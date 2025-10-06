@@ -1,0 +1,13 @@
+<svg viewBox="0 0 16 16" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    transform="matrix(-1,0,0,1,0,0)">
+    <rect id="icon-bound" fill="none"></rect>
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#285313" />
+            <stop offset="100%" stop-color="#a8e063" />
+        </linearGradient>
+    </defs>
+    <path
+        d="M14,14l0,-12l-6,0l0,-2l8,0l0,16l-8,0l0,-2l6,0Zm-9.002,-0.998l-4.998,-5.002l5,-5l1.416,1.416l-2.588,2.584l8.172,0l0,2l-8.172,0l2.586,2.586l-1.416,1.416Z" fill="url(#grad1)"></path>
+</svg>
