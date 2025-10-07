@@ -1,6 +1,8 @@
-import Charts from "../components/charts/Charts";
 import UsersTable from "../components/dashboard/UsersTable";
 import StatisticsCards from "../components/dashboard/StatisticsCards";
+import ProjectProgress from "../components/charts/ProjectProgress";
+import TeamCollaboration from "../components/dashboard/TeamCollaboration";
+import TeamSideperProject from "../components/charts/TeamSideperProject";
 
 function Main() {
   return (
@@ -13,8 +15,14 @@ function Main() {
         </span>
       </div>
       <StatisticsCards />
-      <Charts />
-      <UsersTable />
+      <div className="grid grid-cols-2 gap-2 rounded-lg">
+        <ProjectProgress />
+        <TeamCollaboration />
+      </div>
+      <div className="grid grid-cols-2 gap-2 rounded-lg">
+        <UsersTable />
+        <TeamSideperProject />
+      </div>
     </div>
   );
 }
