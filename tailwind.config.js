@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'leaves-bg': "url('./assets/imgs/leaves.jpg')",
+      }
+    },
   },
   plugins: [],
 };

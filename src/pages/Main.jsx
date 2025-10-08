@@ -1,8 +1,10 @@
-import UsersTable from "../components/dashboard/UsersTable";
+import ProjectsTable from "../components/dashboard/ProjectsTable";
 import StatisticsCards from "../components/dashboard/StatisticsCards";
 import ProjectProgress from "../components/charts/ProjectProgress";
 import TeamCollaboration from "../components/dashboard/TeamCollaboration";
 import TeamSideperProject from "../components/charts/TeamSideperProject";
+import ProjectsByStatus from "../components/charts/ProjectsByStatus";
+import TimeTracker from "../components/dashboard/TimeTracker";
 
 function Main() {
   return (
@@ -20,9 +22,11 @@ function Main() {
         <TeamCollaboration />
       </div>
       <div className="grid grid-cols-2 gap-2 rounded-lg">
-        <UsersTable />
+        <ProjectsByStatus />
         <TeamSideperProject />
       </div>
+      <ProjectsTable />
+      <TimeTracker />
     </div>
   );
 }

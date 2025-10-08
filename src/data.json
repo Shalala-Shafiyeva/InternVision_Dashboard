@@ -52,7 +52,7 @@
             "budget": 8000,
             "team_members": [
                 {
-                    "id": 1,
+                    "id": 6,
                     "name": "John Doe",
                     "role": "Developer"
                 },
@@ -281,6 +281,206 @@
                     "role": "Developer"
                 }
             ]
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@gmail.com",
+            "password": "password123",
+            "role": "Admin",
+            "department": "Main Office",
+            "position": "CEO"
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane@gmail.com",
+            "password": "password123",
+            "role": "Manager",
+            "department": "Main Office",
+            "position": "Project Manager"
+        },
+        {
+            "id": 3,
+            "name": "Bob Johnson",
+            "email": "bob@gmail.com",
+            "password": "password123",
+            "role": "Tester",
+            "department": "IT Department",
+            "position": "Tester"
+        },
+        {
+            "id": 4,
+            "name": "Alice Brown",
+            "email": "alice@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 5,
+            "name": "Charlie Davis",
+            "email": "charlie@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 6,
+            "name": "Eve Wilson",
+            "email": "eve@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 7,
+            "name": "Grace Martinez",
+            "email": "grace@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 8,
+            "name": "Henry Anderson",
+            "email": "henry@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 9,
+            "name": "Isabella Taylor",
+            "email": "isabella@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 10,
+            "name": "Jack Thompson",
+            "email": "jack@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 11,
+            "name": "Katherine White",
+            "email": "katherine@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 12,
+            "name": "Liam Green",
+            "email": "liam@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 13,
+            "name": "Mia Adams",
+            "email": "mia@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 14,
+            "name": "Noah Robinson",
+            "email": "noah@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 15,
+            "name": "Olivia Clark",
+            "email": "olivia@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 16,
+            "name": "Oscar Lewis",
+            "email": "oscar@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 17,
+            "name": "Penelope Walker",
+            "email": "penelope@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 18,
+            "name": "Quinn Young",
+            "email": "quinn@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 19,
+            "name": "Riley Scott",
+            "email": "riley@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        },
+        {
+            "id": 20,
+            "name": "Sophia Hall",
+            "email": "sophia@gmail.com",
+            "password": "password123",
+            "role": "Developer",
+            "department": "IT Department",
+            "position": "Developer"
+        }
+    ],
+    "departments": [
+        {
+            "id": 1,
+            "name": "IT"
+        },
+        {
+            "id": 2,
+            "name": "HR"
+        },
+        {
+            "id": 3,
+            "name": "Sales"
+        },
+        {
+            "id": 4,
+            "name": "Marketing"
         }
     ]
 }

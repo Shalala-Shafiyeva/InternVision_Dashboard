@@ -1,9 +1,9 @@
-import UsersTable from "../components/dashboard/UsersTable";
+import ProjectsTable from "../components/dashboard/ProjectsTable";
 
 function Projects() {
   return (
     <div className="main-panel">
-      <UsersTable />
+      <ProjectsTable />
     </div>
   );
 }

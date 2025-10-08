@@ -5,7 +5,7 @@ function StatisticsCards() {
     <div className="statistics">
       <div className="cards flex gap-2">
         <div className="card px-4 py-6 text-white flex flex-col gap-2 justify-between  rounded-[32px] bg-gradient-to-br from-green-900 to-green-500 w-3/12">
-          <span className="title text-xl font-medium">Total Projects</span>
+          <span className="title text-xl font-medium">Total Users</span>
           <span className="number text-5xl font-bold">24</span>
           <div className="flex gap-2 items-center text-green-200">
             <span className="percentage p-1 border border-green-200 rounded-md">

@@ -13,7 +13,6 @@ export default function ProjectProgress() {
 
   const COLORS = ["#285313", "#a8e063", "#66bb6a"];
 
-  // === 3. Данные для LineChart (прогресс по проектам) ===
   const progressData = projectsData?.projects.map((project) => ({
     name: project.name,
     progress: project.progress,

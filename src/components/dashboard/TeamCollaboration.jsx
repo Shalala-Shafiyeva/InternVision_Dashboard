@@ -2,48 +2,50 @@ import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import projectsData from "../../data.json";
 
 function TeamCollaboration() {
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
-  return array;
-}
 
-const allMembersWithProject = projectsData?.projects.flatMap((project) =>
-  project.team_members.map((member) => ({
-    id: member.id,
-    name: member.name,
-    role: member.role,
-    projectName: project.name,
-    projectStatus: project.status,
-  }))
-);
-const groupedMembers = new Map();
+  const allMembersWithProject = projectsData?.projects.flatMap((project) =>
+    project.team_members.map((member) => ({
+      id: member.id,
+      name: member.name,
+      role: member.role,
+      projectName: project.name,
+      projectStatus: project.status,
+    }))
+  );
+  const groupedMembers = new Map();
 
-allMembersWithProject.forEach((member) => {
-  if (!groupedMembers.has(member.id)) {
-    groupedMembers.set(member.id, []);
-  }
-  groupedMembers.get(member.id).push(member);
-});
-const uniqueMembersArray = Array.from(groupedMembers.values()).map(
-  (memberRecords) => {
-    const randomIndex = Math.floor(Math.random() * memberRecords.length);
-    return memberRecords[randomIndex];
-  }
-);
-const shuffledMembers = shuffleArray(uniqueMembersArray);
-const uniqueRandomMembers = shuffledMembers.slice(0, 5);
+  allMembersWithProject.forEach((member) => {
+    if (!groupedMembers.has(member.id)) {
+      groupedMembers.set(member.id, []);
+    }
+    groupedMembers.get(member.id).push(member);
+  });
+  const uniqueMembersArray = Array.from(groupedMembers.values()).map(
+    (memberRecords) => {
+      const randomIndex = Math.floor(Math.random() * memberRecords.length);
+      return memberRecords[randomIndex];
+    }
+  );
+  const shuffledMembers = shuffleArray(uniqueMembersArray);
+  const uniqueRandomMembers = shuffledMembers.slice(0, 5);
 
   return (
     <div className="team_collaboration bg-white p-4 rounded-xl shadow flex flex-col gap-3">
       <div className="head flex justify-between items-center gap-2 flex-wrap">
         <span className="text-xl font-medium">Team Collaboration</span>
-        <button className="flex items-center gap-1 bg-white w-[max-content] text-sm py-2 px-4 rounded-[32px] font-medium text-green-800 border border-green-800">
-          <PlusIcon className="w-4 h-4 text-green-800" />
-          <span>Add Member</span>
-        </button>
+        <div className="add_btn">
+          <button className="flex items-center gap-1 bg-white w-[max-content] group text-sm py-2 px-4 rounded-[32px] font-medium text-green-800 border border-green-800 hover:bg-green-800 hover:text-white transition duration-150">
+            <PlusIcon className="w-4 h-4 text-green-800 group-hover:text-white" />
+            <span>Add Member</span>
+          </button>
+        </div>
       </div>
       <div className="team_box flex flex-col gap-3">
         {uniqueRandomMembers.map((member) => (
