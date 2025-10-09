@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   useReactTable,
   getCoreRowModel,
@@ -8,6 +8,9 @@ import {
   getPaginationRowModel,
 } from "@tanstack/react-table";
 import projectsData from "../../data.json";
+import { EditIcon, PlusIcon, TrashIcon } from "lucide-react";
+import ProjectDetails from "./ProjectDetails";
+import ProjectForm from "./ProjectForm";
 
 const getStatusClasses = (status) => {
   switch (status) {
@@ -60,13 +63,16 @@ function StatusFilter({ column }) {
 }
 
 function ProjectsTable() {
-  const [data] = useState(projectsData.projects);
+  const [data, setData] = useState(projectsData.projects);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [editingProject, setEditingProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const columns = useMemo(
     () => [
@@ -107,7 +113,7 @@ function ProjectsTable() {
           <div className="flex items-center space-x-2">
             <div className="w-20 bg-gray-200 rounded-full h-2.5">
               <div
-                className="bg-blue-600 h-2.5 rounded-full"
+                className="bg-orange-900 h-2.5 rounded-full"
                 style={{ width: `${info.getValue()}%` }}
               ></div>
             </div>
@@ -147,8 +153,44 @@ function ProjectsTable() {
           filterType: "text",
         },
       },
+      {
+        id: "actions",
+        header: "Actions",
+        size: 120,
+        enableSorting: false,
+        enableColumnFilter: false,
+        cell: (info) => (
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleEditClick(info.row.original);
+              }}
+              className="relative p-2 border border-blue-600 rounded-lg overflow-hidden  font-medium text-sm  text-blue-600 hover:text-white transition-colors duration-300 group"
+            >
+              <span className="absolute inset-0 bg-blue-600 w-0 group-hover:w-full  transition-all duration-300 ease-out  z-0" />
+              <EditIcon className="w-5 h-5 relative z-8" />
+            </button>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteProject(info.row.original.id);
+              }}
+              className="relative p-2 border border-red-600 rounded-lg overflow-hidden text-red-600 hover:text-white transition-colors font-medium text-sm duration-300 group"
+            >
+              <span className="absolute inset-0 bg-red-600 w-0 group-hover:w-full  transition-all duration-300 ease-out  z-0" />
+              <TrashIcon className="w-5 h-5 relative z-8" />
+            </button>
+          </div>
+        ),
+        meta: {
+          filterComponent: null,
+          filterType: "none",
+        },
+      },
     ],
-    []
+    [projectsData.projects]
   );
 
   const table = useReactTable({
@@ -164,11 +206,70 @@ function ProjectsTable() {
     onPaginationChange: setPagination,
   });
 
+  // 💡 НОВАЯ ФУНКЦИЯ: Обработка клика по строке
+  const handleRowClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  // 💡 НОВАЯ ФУНКЦИЯ: Обработка редактирования проекта
+  const handleEditClick = (project) => {
+    setEditingProject(project);
+    setIsFormOpen(true);
+  };
+
+  // 💡 НОВАЯ ФУНКЦИЯ: Обработка сохранения проекта
+  const handleSaveProject = (newProject) => {
+    // Здесь должна быть логика API
+    if (newProject.id) {
+      // Логика редактирования
+      setData(
+        projectsData.projects.map((p) =>
+          p.id === newProject.id ? newProject : p
+        )
+      );
+    } else {
+      // Логика создания нового проекта
+      newProject.id = Date.now(); // Простое присвоение ID
+      setData([newProject, ...data]);
+    }
+    setIsFormOpen(false);
+    setEditingProject(null);
+  };
+
+  const handleDeleteProject = (id) => {
+    console.log("Delete user with ID:", id); // Logic to handle deletion
+  };
+
   return (
     <div className="w-full">
+      {isFormOpen && (
+        <ProjectForm
+          project={editingProject}
+          onClose={() => setIsFormOpen(false)}
+          onSave={handleSaveProject}
+        />
+      )}
+      {selectedProject && (
+        <ProjectDetails
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+      <div className="add_btn flex justify-end mb-6">
+        <button
+          className="flex items-center gap-1 bg-white w-[max-content] group text-sm py-2 px-4 rounded-[32px] font-medium text-green-800 border border-green-800 hover:bg-green-800 hover:text-white transition duration-150"
+          onClick={() => {
+            setEditingProject(null);
+            setIsFormOpen(true);
+          }}
+        >
+          <PlusIcon className="w-4 h-4 text-green-800 group-hover:text-white" />
+          <span>Add Project</span>
+        </button>
+      </div>
       <div className="bg-white shadow-lg rounded-xl overflow-hidden">
         <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-xl font-medium">Proyekt Portfeli</h2>
+          <h2 className="text-xl font-medium">Projects Portfolio</h2>
           <div className="flex items-center space-x-3">
             <input
               type="text"
@@ -243,6 +344,7 @@ function ProjectsTable() {
                   <tr
                     key={row.id}
                     className="hover:bg-blue-50/50 transition-colors"
+                    onClick={() => handleRowClick(row.original)}
                   >
                     {row.getVisibleCells().map((cell) => (
                       <td
@@ -270,7 +372,7 @@ function ProjectsTable() {
             </tbody>
           </table>
         </div>
-        <div className="p-4 border-t border-gray-200 flex items-center justify-between text-sm text-gray-600">
+        <div className="p-4 border-t border-gray-200 flex flex-col gap-2 sm:flex-row sm:gap-0 items-center justify-between text-sm text-gray-600">
           <div className="flex items-center space-x-2">
             <p>
               Filtered: {table.getFilteredRowModel().rows.length} / Total:{" "}

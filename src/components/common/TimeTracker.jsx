@@ -117,7 +117,7 @@ export default function TimeTracker() {
           onClick={handleOpenStopwatch}
         >
           <div className="transition-transform duration-300 group-hover:rotate-180">
-            <TimeIcon className="w-9 h-9" />
+            <TimeIcon className="w-5 h-5 md:w-9 md:h-9" />
           </div>
         </div>
       ) : (

@@ -41,7 +41,7 @@ function TeamCollaboration() {
       <div className="head flex justify-between items-center gap-2 flex-wrap">
         <span className="text-xl font-medium">Team Collaboration</span>
         <div className="add_btn">
-          <button className="flex items-center gap-1 bg-white w-[max-content] group text-sm py-2 px-4 rounded-[32px] font-medium text-green-800 border border-green-800 hover:bg-green-800 hover:text-white transition duration-150">
+          <button className="flex items-center gap-1 bg-white w-[max-content] group text-xs md:text-sm  py-1 px-2 md:py-2 md:px-4 rounded-[32px] font-medium text-green-800 border border-green-800 hover:bg-green-800 hover:text-white transition duration-150">
             <PlusIcon className="w-4 h-4 text-green-800 group-hover:text-white" />
             <span>Add Member</span>
           </button>

@@ -52,7 +52,7 @@ const handleDelete = (id) => {
 };
 
 const handleEdit = (user) => {
-  console.log("Edit user:", user); // Logic to open a modal or form for editing
+  console.log("Edit user:", user); // Logic to open a r form for editing
 };
 
 function UsersTable({ handleOpenModal }) {
@@ -190,7 +190,7 @@ function UsersTable({ handleOpenModal }) {
       </div>
       <div className="bg-white shadow-lg rounded-xl overflow-hidden">
         <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-          <h2 className="text-xl font-medium">Users Table</h2>
+          <h2 className="text-xl font-medium">Users</h2>
           <div className="flex items-center space-x-3">
             <input
               type="text"
@@ -292,7 +292,7 @@ function UsersTable({ handleOpenModal }) {
             </tbody>
           </table>
         </div>
-        <div className="p-4 border-t border-gray-200 flex items-center justify-between text-sm text-gray-600">
+        <div className="p-4 border-t border-gray-200 flex flex-col gap-2 sm:flex-row sm:gap-0 items-center justify-between text-sm text-gray-600">
           <div className="flex items-center space-x-2">
             <p>
               Filtered: {table.getFilteredRowModel().rows.length} / Total:{" "}
