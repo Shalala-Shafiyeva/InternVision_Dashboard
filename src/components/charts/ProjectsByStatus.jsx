@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import Pie, { ProvidedProps, PieArcDatum } from "@visx/shape/lib/shapes/Pie";
+import { useState, useMemo } from "react";
+import Pie from "@visx/shape/lib/shapes/Pie";
 import { scaleOrdinal } from "@visx/scale";
 import { Group } from "@visx/group";
 import { GradientPinkBlue } from "@visx/gradient";
@@ -46,8 +46,6 @@ function AnimatedPie({
   return transitions((props, arc, { key }) => {
     const [centroidX, centroidY] = path.centroid(arc);
     const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
-
-    // Вычисляем процент для метки
     const total = arcs.reduce((acc, a) => acc + getStatusCount(a.data), 0);
     const percentage = ((getStatusCount(arc.data) / total) * 100).toFixed(1);
 

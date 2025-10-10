@@ -1,170 +1,13 @@
 import { ReactComponent as PlusIcon } from "../../assets/icons/plus.svg";
 import { ReactComponent as DotsIcon } from "../../assets/icons/dots.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DepartmentDetails from "../departments/DepartmentDetails";
-
-const departmentData = [
-  {
-    id: 1,
-    name: "IT Department",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 50,
-    positions: 10,
-  },
-  {
-    id: 2,
-    name: "Marketing",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 35,
-    positions: 5,
-  },
-  {
-    id: 3,
-    name: "Finance",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 22,
-    positions: 3,
-  },
-  {
-    id: 4,
-    name: "Human Resources (HR)",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 15,
-    positions: 2,
-  },
-  {
-    id: 5,
-    name: "Sales",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 80,
-    positions: 15,
-  },
-  {
-    id: 6,
-    name: "R&D Lab",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 45,
-    positions: 8,
-  },
-  {
-    id: 7,
-    name: "Customer Support",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 65,
-    positions: 12,
-  },
-  {
-    id: 8,
-    name: "Logistics",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    positions: 6,
-  },
-  {
-    id: 9,
-    name: "Legal",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 10,
-    positions: 1,
-  },
-  {
-    id: 10,
-    name: "Design Studio",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 18,
-    positions: 4,
-  },
-  {
-    id: 11,
-    name: "Data Science",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 28,
-    positions: 7,
-  },
-  {
-    id: 12,
-    name: "Operations",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 30,
-    positions: 5,
-  },
-  {
-    id: 13,
-    name: "Product Management",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 12,
-    positions: 2,
-  },
-  {
-    id: 14,
-    name: "Security",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    positions: 4,
-  },
-  {
-    id: 15,
-    name: "Quality Assurance (QA)",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    positions: 6,
-  },
-  {
-    id: 16,
-    name: "Cloud Engineering",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 25,
-    positions: 5,
-  },
-  {
-    id: 17,
-    name: "Content Creation",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 14,
-    positions: 3,
-  },
-  {
-    id: 18,
-    name: "Internal Comms",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 8,
-    positions: 1,
-  },
-  {
-    id: 19,
-    name: "Training & Education",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 11,
-    positions: 2,
-  },
-  {
-    id: 20,
-    name: "Executive Office",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
-    members: 7,
-    positions: 1,
-  },
-];
+import axios from "axios";
+import { set } from "react-hook-form";
 
 export default function DepartmentCards({ handleOpenModal }) {
   const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [departments, setDepartments] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const handleDropdown = (e, departmentId) => {
     e.stopPropagation();
@@ -172,8 +15,23 @@ export default function DepartmentCards({ handleOpenModal }) {
   };
   const handleDepartment = (department) => {
     setSelectedDepartment(department);
-    // handleOpenModal(department);
   };
+
+  const departmentsData = async () => {
+    try {
+      const res = await axios.get(
+        "https://mocki.io/v1/aeb93500-95a0-4761-9b72-db45d6bc967a"
+      );
+
+      setDepartments(res.data.departments || []);
+    } catch (err) {
+      console.error("Axios Fetch Error:", err);
+    }
+  };
+
+  useEffect(() => {
+    departmentsData();
+  }, []);
 
   return (
     <>
@@ -194,7 +52,7 @@ export default function DepartmentCards({ handleOpenModal }) {
       </div>
       <div className="cards">
         <div className="grid mb-8 border border-gray-200 shadow-xs dark:border-gray-700 md:mb-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white dark:bg-gray-800">
-          {departmentData?.map((department) => (
+          {departments?.map((department) => (
             <div
               key={department?.id}
               onClick={() => handleDepartment(department)}

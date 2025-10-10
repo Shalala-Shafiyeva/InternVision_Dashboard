@@ -468,19 +468,140 @@
     "departments": [
         {
             "id": 1,
-            "name": "IT"
+            "name": "IT Department",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 50,
+            "positions": 10
         },
         {
             "id": 2,
-            "name": "HR"
+            "name": "Marketing",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 35,
+            "positions": 5
         },
         {
             "id": 3,
-            "name": "Sales"
+            "name": "Finance",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 22,
+            "positions": 3
         },
         {
             "id": 4,
-            "name": "Marketing"
+            "name": "Human Resources (HR)",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 15,
+            "positions": 2
+        },
+        {
+            "id": 5,
+            "name": "Sales",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 80,
+            "positions": 15
+        },
+        {
+            "id": 6,
+            "name": "R&D Lab",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 45,
+            "positions": 8
+        },
+        {
+            "id": 7,
+            "name": "Customer Support",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 65,
+            "positions": 12
+        },
+        {
+            "id": 8,
+            "name": "Logistics",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "positions": 6
+        },
+        {
+            "id": 9,
+            "name": "Legal",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 10,
+            "positions": 1
+        },
+        {
+            "id": 10,
+            "name": "Design Studio",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 18,
+            "positions": 4
+        },
+        {
+            "id": 11,
+            "name": "Data Science",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 28,
+            "positions": 7
+        },
+        {
+            "id": 12,
+            "name": "Operations",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 30,
+            "positions": 5
+        },
+        {
+            "id": 13,
+            "name": "Product Management",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 12,
+            "positions": 2
+        },
+        {
+            "id": 14,
+            "name": "Security",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "positions": 4
+        },
+        {
+            "id": 15,
+            "name": "Quality Assurance (QA)",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "positions": 6
+        },
+        {
+            "id": 16,
+            "name": "Cloud Engineering",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 25,
+            "positions": 5
+        },
+        {
+            "id": 17,
+            "name": "Content Creation",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 14,
+            "positions": 3
+        },
+        {
+            "id": 18,
+            "name": "Internal Comms",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 8,
+            "positions": 1
+        },
+        {
+            "id": 19,
+            "name": "Training & Education",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 11,
+            "positions": 2
+        },
+        {
+            "id": 20,
+            "name": "Executive Office",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, dolorum!",
+            "members": 7,
+            "positions": 1
         }
     ]
 }

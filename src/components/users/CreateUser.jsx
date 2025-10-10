@@ -8,8 +8,6 @@ function CreateUser({ handleOpenModal }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    // const newUsers = [...localUsers, data];
-    // setLocalUsers(newUsers);
     handleOpenModal();
   };
 

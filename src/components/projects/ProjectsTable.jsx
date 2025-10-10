@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   useReactTable,
   getCoreRowModel,
@@ -7,10 +7,10 @@ import {
   flexRender,
   getPaginationRowModel,
 } from "@tanstack/react-table";
-import projectsData from "../../data.json";
 import { EditIcon, PlusIcon, TrashIcon } from "lucide-react";
 import ProjectDetails from "./ProjectDetails";
 import ProjectForm from "./ProjectForm";
+import axios from "axios";
 
 const getStatusClasses = (status) => {
   switch (status) {
@@ -63,7 +63,7 @@ function StatusFilter({ column }) {
 }
 
 function ProjectsTable() {
-  const [data, setData] = useState(projectsData.projects);
+  const [data, setData] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [pagination, setPagination] = useState({
@@ -73,6 +73,27 @@ function ProjectsTable() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = async () => {
+    try {
+      const res = await axios.get(
+        "https://mocki.io/v1/176a08e2-854b-4063-9fe4-9b57145db5c6"
+      );
+
+      setData(res.data.projects || []);
+      setPagination({
+        pageIndex: 0,
+        pageSize: 10,
+      });
+    } catch (err) {
+      console.error("Axios Fetch Error:", err);
+      setData([]);
+    }
+  };
+
+  useEffect(() => {
+    projects();
+  }, []);
 
   const columns = useMemo(
     () => [
@@ -190,7 +211,7 @@ function ProjectsTable() {
         },
       },
     ],
-    [projectsData.projects]
+    [projects]
   );
 
   const table = useReactTable({
@@ -216,11 +237,7 @@ function ProjectsTable() {
   };
   const handleSaveProject = (newProject) => {
     if (newProject.id) {
-      setData(
-        projectsData.projects.map((p) =>
-          p.id === newProject.id ? newProject : p
-        )
-      );
+      setData(projects.map((p) => (p.id === newProject.id ? newProject : p)));
     } else {
       newProject.id = Date.now();
       setData([newProject, ...data]);

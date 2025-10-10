@@ -12,7 +12,6 @@ import {
 import projectsData from "../../data.json";
 import { useState, useMemo } from "react";
 
-// Массив цветов для Top 5 проектов
 const CHART_COLORS = [
   "#10B981", // Green
   "#3B82F6", // Blue

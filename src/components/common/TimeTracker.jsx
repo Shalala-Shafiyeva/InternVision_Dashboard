@@ -37,10 +37,9 @@ export default function TimeTracker() {
   };
 
   const handleStopStopwatch = () => {
-    // При нажатии STOP (Полный сброс):
-    setIsRunning(false); // Останавливаем счетчик
-    setIsActive(false); // Деактивируем (показывать снова Play)
-    setElapsedTime(0); // Сбрасываем время
+    setIsRunning(false);
+    setIsActive(false); 
+    setElapsedTime(0); 
   };
 
   const handleFormatedTime = () => {

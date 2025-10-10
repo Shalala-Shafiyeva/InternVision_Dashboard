@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
 import {
   useReactTable,
   getCoreRowModel,
@@ -52,17 +53,39 @@ const handleDelete = (id) => {
 };
 
 const handleEdit = (user) => {
-  console.log("Edit user:", user); // Logic to open a r form for editing
+  console.log("Edit user:", user); // Logic to open form for editing
 };
 
 function UsersTable({ handleOpenModal }) {
-  const [data] = useState(usersData.users);
+  const [data, setData] = useState([]);
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
+
+  const users = async () => {
+    try {
+      const res = await axios.get(
+        "https://mocki.io/v1/f70d8aa5-762a-4f27-9158-c09232352fff"
+      );
+
+      setData(res.data.users || []);
+      setPagination({
+        pageIndex: 0,
+        pageSize: 10,
+      });
+      console.log(res?.data?.users);
+    } catch (err) {
+      console.error("Axios Fetch Error:", err);
+      setData([]);
+    }
+  };
+
+  useEffect(() => {
+    users();
+  }, []);
 
   const columns = useMemo(
     () => [

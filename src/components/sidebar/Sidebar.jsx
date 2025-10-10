@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as UserIcon } from "../../assets/icons/users.svg";
 import { ReactComponent as ProjectIcon } from "../../assets/icons/projects.svg";
-import { ReactComponent as CategoryIcon } from "../../assets/icons/categories.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/icons/settings.svg";
 import { ReactComponent as TeamIcon } from "../../assets/icons/team.svg";
 import { ReactComponent as AccountIcon } from "../../assets/icons/account.svg";
