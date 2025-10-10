@@ -37,7 +37,7 @@ function TeamCollaboration() {
   const uniqueRandomMembers = shuffledMembers.slice(0, 5);
 
   return (
-    <div className="team_collaboration bg-white p-4 rounded-xl shadow flex flex-col gap-3">
+    <div className="team_collaboration bg-white dark:bg-gray-100 p-4 rounded-xl shadow dark:shadow-slate-400 flex flex-col gap-3">
       <div className="head flex justify-between items-center gap-2 flex-wrap">
         <span className="text-xl font-medium">Team Collaboration</span>
         <div className="add_btn">

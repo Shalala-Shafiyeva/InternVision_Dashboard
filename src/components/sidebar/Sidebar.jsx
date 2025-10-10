@@ -15,8 +15,10 @@ function Sidebar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getNavLinkClass = ({ isActive }) =>
-    `flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 transition-colors duration-150 ${
-      isActive ? "bg-gray-700 text-gray-300" : "text-gray-600"
+    `flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 dark:hover:bg-gray-300 dark:hover:text-gray-700 transition-colors duration-150 ${
+      isActive
+        ? "bg-gray-700 text-gray-300 dark:text-gray-700 dark:bg-gray-300"
+        : "text-gray-600 dark:text-gray-400"
     }`;
   return (
     <>
@@ -36,6 +38,7 @@ function Sidebar() {
           overflow-y-auto
           z-40 
           bg-[rgb(247,247,247)] 
+          dark:bg-gray-700
           shadow-lg 
           pt-5 
           transform transition-transform duration-300 ease-in-out
@@ -55,11 +58,13 @@ function Sidebar() {
         )}
         <div className="flex flex-col w-full h-full text-gray-800">
           <NavLink
-            className="flex items-center w-full px-5 pb-5 border-b border-gray-200"
+            className="flex items-center w-full px-5 pb-5 border-gray-200"
             to="/"
           >
             <LogoIcon className="w-8 h-8 text-green-600" />
-            <span className="ml-2 text-xl font-bold">The App</span>
+            <span className="ml-2 text-xl font-bold dark:text-gray-400">
+              The App
+            </span>
           </NavLink>
           <NavLink className={getNavLinkClass} to="/">
             <DashboardIcon className="w-6 h-6" />
@@ -71,39 +76,16 @@ function Sidebar() {
           </NavLink>
           <NavLink className={getNavLinkClass} to="/projects">
             <ProjectIcon className="w-6 h-6" />
-            <span className="ml-2 text-sm font-medium">
-              Projects
-            </span>
+            <span className="ml-2 text-sm font-medium">Projects</span>
           </NavLink>
-          <NavLink
-            className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
-            to="#"
-          >
-            <CategoryIcon className="w-6 h-6" /> 
-            <span className="ml-2 text-sm font-medium">
-              Categories
-            </span>
-          </NavLink>
-
-          <NavLink
-            className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
-            to="#"
-          >
+          <NavLink className={getNavLinkClass} to="/departments">
             <SettingsIcon className="w-6 h-6" />
 
-            <span className="ml-2 text-sm font-medium">
-              Departments
-            </span>
+            <span className="ml-2 text-sm font-medium">Departments</span>
           </NavLink>
-
-          <NavLink
-            className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
-            to="#"
-          >
+          <NavLink className={getNavLinkClass} to="/teams">
             <TeamIcon className="w-6 h-6" />
-            <span className="ml-2 text-sm font-medium">
-              Teams
-            </span>
+            <span className="ml-2 text-sm font-medium">Teams</span>
           </NavLink>
         </div>
         <NavLink

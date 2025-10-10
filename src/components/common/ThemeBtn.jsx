@@ -18,7 +18,7 @@ function ThemeBtn() {
       ) : (
         <button
           type="button"
-          className="flex items-center p-2 rounded-[32px] bg-white/10 text-white hover:bg-white/20 focus:outline-hidden"
+          className="flex items-center p-2 rounded-[32px] bg-white/10 dark:bg-white/50 text-white hover:bg-white/40 focus:outline-hidden"
           data-hs-theme-click-value="dark"
         >
           <DarkModeIcon className="w-3 h-3 sm:w-5 sm:h-5" />

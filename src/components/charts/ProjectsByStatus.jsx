@@ -1,48 +1,3 @@
-// import {
-//   BarChart,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   Tooltip,
-//   Legend,
-//   ResponsiveContainer,
-// } from "recharts";
-// import projectsData from "../../data.json";
-
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
-
-/*******  67bb6d43-e32d-440c-9c04-de4338cedc4f  *******/
-// function ProjectsByStatus() {
-//   const statusData = Object.values(
-//     projectsData?.projects.reduce((acc, project) => {
-//       acc[project.status] = acc[project.status] || {
-//         status: project.status,
-//         count: 0,
-//       };
-//       acc[project.status].count++;
-//       return acc;
-//     }, {})
-//   );
-
-//   return (
-//     <div className="bg-white p-4 rounded-xl shadow">
-//       <h2 className="text-lg font-semibold mb-3">Projects by Status</h2>
-//       <ResponsiveContainer width="100%" height={300}>
-//         <BarChart data={statusData}>
-//           <XAxis dataKey="status" />
-//           <YAxis />
-//           <Tooltip />
-//           <Legend />
-//           <Bar dataKey="count" fill="#285313" />
-//         </BarChart>
-//       </ResponsiveContainer>
-//     </div>
-//   );
-// }
-
-// export default ProjectsByStatus;
-
 import React, { useState, useMemo } from "react";
 import Pie, { ProvidedProps, PieArcDatum } from "@visx/shape/lib/shapes/Pie";
 import { scaleOrdinal } from "@visx/scale";
@@ -172,7 +127,7 @@ export default function ProjectsByStatus({
   const pieData = displayData.length > 0 ? displayData : statusData;
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow flex justify-center flex-col">
+    <div className="bg-white dark:bg-gray-100 dark:shadow-slate-400 p-4 rounded-xl shadow flex justify-center flex-col">
       <h2 className="text-lg font-semibold mb-3 text-left">
         Projects by Status
       </h2>
@@ -184,7 +139,7 @@ export default function ProjectsByStatus({
             width={fullWidth}
             height={fullHeight}
             fill="#FFF"
-            className="border"
+            className="border dark:fill-gray-100"
           />
 
           <Group top={centerY + margin.top} left={centerX + margin.left}>

@@ -19,7 +19,7 @@ export default function ProjectProgress() {
   }));
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow">
+    <div className="bg-white dark:bg-gray-100 dark:shadow-slate-400 p-4 rounded-xl shadow">
       <h2 className="text-xl font-medium mb-3">Project Progress</h2>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={progressData}>

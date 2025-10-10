@@ -1,4 +1,3 @@
-import ProjectsTable from "../components/projects/ProjectsTable";
 import StatisticsCards from "../components/dashboard/StatisticsCards";
 import ProjectProgress from "../components/charts/ProjectProgress";
 import TeamCollaboration from "../components/dashboard/TeamCollaboration";
@@ -8,9 +7,9 @@ import ProjectsByStatus from "../components/charts/ProjectsByStatus";
 function Main() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="head flex flex-col gap-4">
+      <div className="head flex flex-col gap-4 dark:text-white">
         <h2 className="text-4xl font-medium">Dashboard</h2>
-        <span className="text-gray-500 text-md">
+        <span className="text-gray-500 text-md dark:text-gray-200">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium,
           quisquam.
         </span>
@@ -24,7 +23,6 @@ function Main() {
         <ProjectsByStatus />
         <TeamSideperProject />
       </div>
-      <ProjectsTable />
     </div>
   );
 }

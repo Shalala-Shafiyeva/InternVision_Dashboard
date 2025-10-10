@@ -206,30 +206,23 @@ function ProjectsTable() {
     onPaginationChange: setPagination,
   });
 
-  // 💡 НОВАЯ ФУНКЦИЯ: Обработка клика по строке
   const handleRowClick = (project) => {
     setSelectedProject(project);
   };
 
-  // 💡 НОВАЯ ФУНКЦИЯ: Обработка редактирования проекта
   const handleEditClick = (project) => {
     setEditingProject(project);
     setIsFormOpen(true);
   };
-
-  // 💡 НОВАЯ ФУНКЦИЯ: Обработка сохранения проекта
   const handleSaveProject = (newProject) => {
-    // Здесь должна быть логика API
     if (newProject.id) {
-      // Логика редактирования
       setData(
         projectsData.projects.map((p) =>
           p.id === newProject.id ? newProject : p
         )
       );
     } else {
-      // Логика создания нового проекта
-      newProject.id = Date.now(); // Простое присвоение ID
+      newProject.id = Date.now();
       setData([newProject, ...data]);
     }
     setIsFormOpen(false);

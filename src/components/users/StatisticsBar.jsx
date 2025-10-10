@@ -1,4 +1,4 @@
-import React from "react";
+
 
 function StatisticsBar() {
   return (

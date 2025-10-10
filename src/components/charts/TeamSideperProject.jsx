@@ -66,7 +66,7 @@ function TeamSideperProject() {
 
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow h-fit">
+    <div className="bg-white dark:bg-gray-100 dark:shadow-slate-400 p-4 rounded-xl shadow h-fit">
       <div className="flex justify-between items-center mb-3">
         <h2 className="text-lg font-semibold">Team Size per Project</h2>
         <select

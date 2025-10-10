@@ -9,7 +9,6 @@ function StatisticsCards() {
             Total Users
           </span>
           <span className="number text-4xl lg:text-5xl font-bold">24</span>{" "}
-          {/* Адаптивный размер текста */}
           <div className="flex gap-2 items-center text-green-200 text-sm">
             <span className="percentage p-1 border border-green-200 rounded-md">
               +3%
@@ -17,46 +16,42 @@ function StatisticsCards() {
             <span className="">Increased from last month</span>
           </div>
         </div>
-        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
-          <span className="title text-lg sm:text-xl font-medium text-gray-800">
+        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white dark:bg-gray-100/40 w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
+          <span className="title text-lg sm:text-xl font-medium text-gray-800 dark:text-white">
             Ended Projects
           </span>
-          <span className="number text-4xl lg:text-5xl font-bold text-gray-800">
+          <span className="number text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
             10
-          </span>{" "}
-          {/* Адаптивный размер текста */}
-          <div className="flex gap-2 items-center text-green-600 text-sm">
+          </span>
+          <div className="flex gap-2 items-center text-green-600 dark:text-green-400 text-sm">
             <span className="percentage p-1 border border-green-600 rounded-md">
               +6%
             </span>
             <span className="">Increased from last month</span>
           </div>
         </div>
-
-        {/* Карточка 3: Running Projects (Белый) */}
-        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
-          <span className="title text-lg sm:text-xl font-medium text-gray-800">
+        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white dark:bg-gray-100/40 w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
+          <span className="title text-lg sm:text-xl font-medium text-gray-800 dark:text-white">
             Running Projects
           </span>
-          <span className="number text-4xl lg:text-5xl font-bold text-gray-800">
+          <span className="number text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
             12
-          </span>{" "}
-          {/* Адаптивный размер текста */}
-          <div className="flex gap-2 items-center text-green-600 text-sm">
+          </span>
+          <div className="flex gap-2 items-center text-green-600 dark:text-green-400 text-sm">
             <span className="percentage p-1 border border-green-600 rounded-md">
               +2%
             </span>
             <span className="">Increased from last month</span>
           </div>
         </div>
-        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
-          <span className="title text-lg sm:text-xl font-medium text-gray-800">
+        <div className="card px-4 py-6 flex flex-col gap-2 justify-between rounded-[32px] bg-white dark:bg-gray-100/40 w-full sm:w-[48%] md:w-[31.5%] lg:w-[23%] shadow-md">
+          <span className="title text-lg sm:text-xl font-medium text-gray-800 dark:text-white">
             Pending Projects
           </span>
-          <span className="number text-4xl lg:text-5xl font-bold text-gray-800">
+          <span className="number text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
             2
-          </span>{" "}
-          <div className="flex gap-2 items-center text-gray-600 text-sm">
+          </span>
+          <div className="flex gap-2 items-center text-gray-600 dark:text-gray-800 text-sm">
             <span className="">On Discuss</span>
           </div>
         </div>

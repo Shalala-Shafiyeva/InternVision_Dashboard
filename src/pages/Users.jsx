@@ -13,9 +13,9 @@ function Users() {
   return (
     <div className="flex flex-col gap-6">
       {isOpen && <CreateUser handleOpenModal={handleOpenModal} />}
-      <div className="head flex flex-col gap-4">
+      <div className="head flex flex-col gap-4 dark:text-white">
         <h2 className="text-4xl font-medium">Users</h2>
-        <span className="text-gray-500">
+        <span className="text-gray-500 dark:text-gray-200">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium,
           quisquam.
         </span>
